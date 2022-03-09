@@ -19,7 +19,7 @@ const Nav = () => {
 			<div className='nav__contents'>
 				<img
 					className='nav__logo'
-					src='http://assets.stickpng.com/images/580b57fcd9996e24bc43c529.png'
+					src='https://image.tmdb.org/t/p/original/wwemzKWzjKYJFfCeiB57q3r4Bcm.svg'
 					alt='netflix logo'
 				/>
 				<img
