@@ -1,23 +1,27 @@
 import React, { useEffect, useState } from "react";
-import axios from "./axios";
+import axios from "../axios";
 import "./Banner.css";
-import requests from "./Requests";
+import requests from "../Requests";
 const Banner = () => {
 	const [movie, setMovie] = useState([]);
 
 	useEffect(() => {
+		let active = true;
 		async function fetchData() {
-			const request = await axios.get(requests.fetchNetflixOriginals);
-			setMovie(
-				request.data.results[
-					Math.floor(Math.random() * request.data.results.length - 1)
-				]
-			);
-			return request;
+			if (active) {
+				const request = await axios.get(requests.fetchNetflixOriginals);
+				setMovie(
+					request.data.results[
+						Math.floor(Math.random() * request.data.results.length - 1)
+					]
+				);
+				return request;
+			}
 		}
 		fetchData();
+		return () => (active = false);
 	}, []);
-	console.log(movie);
+	// This is used from description in the banner to trim by 100 characters
 	const truncate = (string, n) => {
 		return string?.length > n ? string.substr(0, n - 1) + "..." : string;
 	};
@@ -38,8 +42,8 @@ const Banner = () => {
 					<button className='banner__button'>Play</button>
 					<button className='banner__button mylist'>My list</button>
 				</div>
-				<h1 className='banner__description'>
-					{truncate(movie?.overview, 100)}
+				<h1 className='banner__description '>
+					{truncate(movie?.overview, 150)}
 				</h1>
 			</div>
 			<div className='banner--fadeBottom' />
