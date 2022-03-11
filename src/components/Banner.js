@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "../axios";
-import "./Banner.css";
+import classes from "./Banner.module.css";
 import requests from "../Requests";
 const Banner = () => {
 	const [movie, setMovie] = useState([]);
@@ -28,25 +28,27 @@ const Banner = () => {
 
 	return (
 		<header
-			className='banner'
+			className={classes.banner}
 			style={{
 				backgroundSize: "cover",
 				backgroundImage: `url('https://image.tmdb.org/t/p/original/${movie?.backdrop_path}')`,
 				backgroundPosition: "center center",
 			}}>
-			<div className='banner__contents'>
-				<h1 className='banner__title'>
+			<div className={classes.banner__contents}>
+				<h1 className={classes.banner__title}>
 					{movie?.title || movie?.name || movie?.original_name}
 				</h1>
-				<div className='banner__buttons'>
-					<button className='banner__button'>Play</button>
-					<button className='banner__button mylist'>My list</button>
+				<div className={classes.banner__buttons}>
+					<button className={classes.banner__button}>Play</button>
+					<button className={`${classes.banner__button}  ${classes.myList}`}>
+						My list
+					</button>
 				</div>
-				<h1 className='banner__description '>
+				<h1 className={classes.banner__description}>
 					{truncate(movie?.overview, 150)}
 				</h1>
 			</div>
-			<div className='banner--fadeBottom' />
+			<div className={classes["banner--fadeBottom"]} />
 		</header>
 	);
 };

@@ -1,0 +1,38 @@
+.loginScreen__storyCard {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	border-top: 0.5rem solid rgb(128, 128, 128, 0.2);
+	background: rgb(0, 0, 0);
+	color: white;
+	padding: 5rem 3rem;
+}
+.loginScreen__storyCard > div > h1 {
+	font-size: 7vmin;
+}
+.loginScreen__storyCard > div > h2 {
+	font-size: 2.2vmin;
+}
+.loginScreen__storyCard > div > img {
+	max-width: 100%;
+	height: auto;
+	object-fit: contain;
+}
+.imgClass {
+	z-index: 4;
+	position: relative;
+}
+@media (max-width: 1000px) {
+	.loginScreen__storyCard {
+		/* flex-direction: column;
+		 */
+		flex-wrap: wrap;
+		padding: 0;
+		padding-top: 50px;
+		padding-left: 25px;
+		padding-right: 25px;
+	}
+	.loginScreen__storyCard > div > h1 {
+		padding-bottom: 10px;
+	}
+}

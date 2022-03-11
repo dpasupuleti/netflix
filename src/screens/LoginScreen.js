@@ -1,23 +1,27 @@
 import React, { useState } from "react";
-import "./LoginScreen.css";
+import classes from "./LoginScreen.module.css";
 import SignupScreen from "./SignupScreen";
+import netflixLogo from "../assets/logo/netflixlogo.svg";
+import StoryCards from "../components/StoryCards";
 const LoginScreen = () => {
 	const [signIn, setSignIn] = useState(false);
-
 	return (
-		<div className='loginScreen'>
-			<div className='loginScreen__background'>
+		<div className={classes.loginScreen}>
+			<div className={classes.loginScreen__background}>
 				<img
-					className='loginScreen__logo'
-					src='https://assets.stickpng.com/images/580b57fcd9996e24bc43c529.png'
-					alt='loginscreen netflix logo'
+					className={classes.loginScreen__logo}
+					onClick={() => setSignIn(false)}
+					src={netflixLogo}
+					alt='netflix logo'
 				/>
-				<button className='loginScreen__button' onClick={() => setSignIn(true)}>
+				<button
+					className={classes.loginScreen__button}
+					onClick={() => setSignIn(true)}>
 					Sign In
 				</button>
-				<div className='loginScreen__gradient' />
+				<div className={classes.loginScreen__gradient} />
 			</div>
-			<div className='loginScreen__body'>
+			<div className={classes.loginScreen__body}>
 				{signIn ? (
 					<SignupScreen />
 				) : (
@@ -28,17 +32,18 @@ const LoginScreen = () => {
 							Ready to watch? Enter your email to create or restart your
 							membership.
 						</h3>
-						<div className='loginScreen_input'>
+						<div className={classes.loginScreen_input}>
 							<form>
 								<input type='email' placeholder='Email Address' />
 								<button
 									onClick={() => setSignIn(true)}
 									type='click'
-									className='loginScreen__getStarted'>
+									className={classes.loginScreen__getStarted}>
 									GET STARTED
 								</button>
 							</form>
 						</div>
+						<StoryCards />
 					</React.Fragment>
 				)}
 			</div>
