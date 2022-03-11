@@ -1,0 +1,18 @@
+.skeleton {
+	background: #111;
+	margin: 10px 0;
+	border-radius: 4px;
+	animation: skeleton 1s ease infinite alternate;
+}
+@keyframes skeleton {
+	to {
+		opacity: 0.6;
+	}
+}
+.skeleton.thumbnail {
+	width: 250px;
+	height: 200px;
+	margin-right: 1.7rem;
+	border-radius: 4px;
+	transition: transform 450ms;
+}

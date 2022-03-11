@@ -83,7 +83,7 @@ const StoryCards = () => {
 							width={storyCard.width}
 							height={storyCard.height}
 							style={storyCard.style}
-							autoPlay='true'
+							autoPlay={true}
 							playsInline
 							muted
 							loop
