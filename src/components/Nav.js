@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import netflixLogo from "../assets/logo/netflixlogo.svg";
 import classes from "./Nav.module.css";
-const Nav = () => {
+const Nav = (props) => {
 	const [showNavbar, setShowNavbar] = useState(false);
 	const navigate = useNavigate();
 
@@ -13,16 +13,19 @@ const Nav = () => {
 			setShowNavbar(false);
 		}
 	};
+
 	useEffect(() => {
 		window.addEventListener("scroll", transitionNavBar);
 		return () => window.removeEventListener("scroll", transitionNavBar);
 	}, []);
+
+	console.log(props.subscription);
 	return (
 		<div
 			className={`${classes.nav} ${showNavbar ? `${classes.nav__black}` : ""}`}>
 			<div className={classes.nav__contents}>
 				<img
-					onClick={() => navigate("/")}
+					onClick={() => props.subscription && navigate("/")}
 					className={classes.nav__logo}
 					src={netflixLogo}
 					alt='netflix logo'

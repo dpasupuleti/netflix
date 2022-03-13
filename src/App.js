@@ -15,7 +15,6 @@ function App() {
 		// basically it listens to any authentication state change it gives back callback function
 		const unsubscribe = auth.onAuthStateChanged((userAuth) => {
 			if (userAuth) {
-				console.log(userAuth);
 				dispatch(
 					login({
 						uid: userAuth.uid,
@@ -46,4 +45,4 @@ function App() {
 	);
 }
 
-export default App;
+export default React.memo(App);

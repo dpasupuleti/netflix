@@ -1,16 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Nav from "../components/Nav";
 import { selectUser } from "../features/userSlice";
 import { auth } from "../firebase";
+import PlanScreen from "./PlanScreen";
 import classes from "./ProfileScreen.module.css";
 const ProfileScreen = () => {
+	const [subscriptionState, setSubscriptionState] = useState(false);
 	const user = useSelector(selectUser);
 	const navigate = useNavigate();
+
+	const subscriptionHandler = (data) => {
+		setSubscriptionState(data);
+	};
 	return (
 		<div className={classes.profileScreen}>
-			<Nav />
+			<Nav subscription={subscriptionState} />
 			<div className={classes.profileScreen__body}>
 				<h1>Edit Profile</h1>
 				<div className={classes.profileScreen__info}>
@@ -22,6 +28,7 @@ const ProfileScreen = () => {
 						<h2>{user.email}</h2>
 						<div className={classes.profileScreen__plans}>
 							<h3>Plans</h3>
+							<PlanScreen onSubscription={subscriptionHandler} />
 							<button
 								onClick={() => {
 									navigate("/");

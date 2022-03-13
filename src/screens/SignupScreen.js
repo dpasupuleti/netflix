@@ -1,16 +1,21 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { auth } from "../firebase";
 import classes from "./SignupScreen.module.css";
 const SignupScreen = () => {
 	const [emailInput, setEmailInput] = useState("");
 	const [passwordInput, setPasswordInput] = useState("");
+	const navigate = useNavigate();
 
 	const register = (e) => {
 		e.preventDefault();
 		auth
 			.createUserWithEmailAndPassword(emailInput, passwordInput)
 			.then((authUser) => {
-				console.log(authUser);
+				if (authUser) {
+					navigate("/profile");
+					console.log(authUser);
+				}
 			})
 			.catch((e) => console.log(e.message));
 	};

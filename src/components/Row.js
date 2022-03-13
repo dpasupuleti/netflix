@@ -9,20 +9,17 @@ const Row = ({ title, fetchUrl, isLargeRow = false }) => {
 	const base_url = "https://image.tmdb.org/t/p/original/";
 
 	useEffect(() => {
-		// let active = true;
-		// if (active) {
 		async function fetchData() {
 			setIsLoading(true);
 			try {
 				const request = await axios.get(fetchUrl);
 				setMovies(request.data.results);
-				// return request;
-			} catch {}
-			setIsLoading(false);
+				setIsLoading(false);
+				return request;
+			} catch (e) {}
 		}
 		fetchData();
-		// }
-		// return () => (active = false);
+		return () => setIsLoading(false);
 	}, [fetchUrl]);
 	return (
 		<div className={classes.row}>
@@ -36,10 +33,10 @@ const Row = ({ title, fetchUrl, isLargeRow = false }) => {
 							((isLargeRow && movie.poster_path) ||
 								(!isLargeRow && movie.backdrop_path)) && (
 								<img
+									key={movie.id}
 									className={`${classes.row__poster} ${
 										isLargeRow && `${classes.row__posterLarge}`
 									}`}
-									key={movie.id}
 									src={`${base_url}${
 										isLargeRow ? movie.poster_path : movie.backdrop_path
 									}`}

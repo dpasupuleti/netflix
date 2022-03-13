@@ -7,18 +7,20 @@ const Banner = () => {
 
 	useEffect(() => {
 		let active = true;
-		async function fetchData() {
-			if (active) {
-				const request = await axios.get(requests.fetchNetflixOriginals);
-				setMovie(
-					request.data.results[
-						Math.floor(Math.random() * request.data.results.length - 1)
-					]
-				);
-				return request;
-			}
+		if (active) {
+			const subscribe = async function () {
+				if (active) {
+					const request = await axios.get(requests.fetchNetflixOriginals);
+					setMovie(
+						request.data.results[
+							Math.floor(Math.random() * request.data.results.length - 1)
+						]
+					);
+					return request;
+				}
+			};
+			subscribe();
 		}
-		fetchData();
 		return () => (active = false);
 	}, []);
 	// This is used from description in the banner to trim by 100 characters
