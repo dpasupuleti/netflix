@@ -71,7 +71,6 @@ const PlanScreen = (props) => {
 			}
 		});
 	};
-	console.log(subscription);
 
 	return (
 		<div className={classes.planScreen}>

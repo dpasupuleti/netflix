@@ -19,7 +19,6 @@ const Nav = (props) => {
 		return () => window.removeEventListener("scroll", transitionNavBar);
 	}, []);
 
-	console.log(props.subscription);
 	return (
 		<div
 			className={`${classes.nav} ${showNavbar ? `${classes.nav__black}` : ""}`}>
