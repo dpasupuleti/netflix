@@ -1,5 +1,5 @@
 .skeleton {
-	background: #111;
+	background: rgb(39, 39, 39);
 	margin: 10px 0;
 	border-radius: 4px;
 	animation: skeleton 1s ease infinite alternate;
