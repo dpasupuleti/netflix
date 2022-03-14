@@ -57,3 +57,12 @@
 	text-decoration: underline;
 	cursor: pointer;
 }
+.signupScreen__errorMessage {
+	color: red;
+	font-size: small;
+	text-align: start;
+}
+.inputField {
+	border: 1px solid #e50914 !important;
+	/* border-radius: 2px; */
+}
