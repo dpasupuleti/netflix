@@ -31,9 +31,13 @@ const SignupScreen = () => {
 		if (emailInput && passwordInput) {
 			auth
 				.signInWithEmailAndPassword(emailInput, passwordInput)
-				.then((authUser) => console.log(authUser))
+				.then((authUser) => {
+					console.log(authUser);
+				})
 				.catch((e) => {
-					return setErrorMessage("Incorrect email or Password");
+					setError(true);
+					setErrorMessage("Incorrect email or Password");
+					return;
 				});
 		} else {
 			setError(true);
