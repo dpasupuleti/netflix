@@ -13,9 +13,9 @@ This is a netflix clone web application, Where i've included the stripe payment 
 
 <!-- Technologies used -->
 
-1.react
-2.javaScript
-3.CSS Modules
-4.redux
-5.react-router-dom
-6.firebase
+1. react
+2. javaScript
+3. CSS Modules
+4. redux
+5. react-router-dom
+6. firebase
