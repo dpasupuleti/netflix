@@ -5,19 +5,19 @@ This is a netflix clone web application, Where i've included the stripe payment 
 
 <!-- THis is test data -->
 
-CARD.NO:- 4242 4242 4242 4242,
+      CARD.NO:- 4242 4242 4242 4242,
 
-EXPIRY DATE:- 424,
+      EXPIRY DATE:- 424,
 
-CVV:- 424,
+      CVV:- 424,
 
-NAME ON CARD:- abc,
+      NAME ON CARD:- abc,
 
-LOCATION:-abc,
+      LOCATION:-abc,
 
-ADDRESS:-abc,
+      ADDRESS:-abc,
 
-POSTAL CODE:- N2l3N7.
+      POSTAL CODE:- N2l3N7.
 
 3. After subscription you will be redirected to the home page of netflix.
 
