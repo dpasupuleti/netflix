@@ -1,4 +1,6 @@
-This is a netflix clone web application, Where i've included the stripe payment gateway
+This is a netflix clone web application, Where i've included the stripe payment gateway.
+
+To visit this website here is the link: - https://netflix-67e76.firebaseapp.com/
 
 1. First you need to create an account by entering valid email and password to access the netflix app.
 2. You need to buy the subscription to watch the content. You can enter the below card details for testing purposes.
