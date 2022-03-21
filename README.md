@@ -31,3 +31,4 @@ Technologies used
 4. redux
 5. react-router-dom
 6. firebase
+7. Stripe payment.
