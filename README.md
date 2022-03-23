@@ -20,6 +20,8 @@ To visit this website here is the link: - https://netflix-67e76.firebaseapp.com/
       ADDRESS:-abc,
 
       POSTAL CODE:- N2l3N7.
+      
+*******PLEASE DO NOT ENTER REAL CARD CREDENTIALS ********
 
 3. After subscription you will be redirected to the home page of netflix.
 
