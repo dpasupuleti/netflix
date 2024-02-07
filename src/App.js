@@ -9,40 +9,41 @@ import LoginScreen from "./screens/LoginScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 
 function App() {
-	const user = useSelector(selectUser);
-	const dispatch = useDispatch();
-	useEffect(() => {
-		// basically it listens to any authentication state change it gives back callback function
-		const unsubscribe = auth.onAuthStateChanged((userAuth) => {
-			if (userAuth) {
-				dispatch(
-					login({
-						uid: userAuth.uid,
-						email: userAuth.email,
-					})
-				);
-			} else {
-				// logout
-				dispatch(logout());
-			}
-		});
-		return unsubscribe;
-	}, [dispatch]);
-
-	return (
-		<div style={{ backgroundColor: "black" }}>
-			<BrowserRouter>
-				{!user ? (
-					<LoginScreen />
-				) : (
-					<Routes>
-						<Route exact path='/' element={<HomeScreen />} />
-						<Route exact path='/profile' element={<ProfileScreen />} />
-					</Routes>
-				)}
-			</BrowserRouter>
-		</div>
-	);
+  const user = useSelector(selectUser);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    // basically it listens to any authentication state change it gives back callback function
+    const unsubscribe = auth.onAuthStateChanged((userAuth) => {
+      if (userAuth) {
+        dispatch(
+          login({
+            uid: userAuth.uid,
+            email: userAuth.email,
+          })
+        );
+      } else {
+        // logout
+        dispatch(logout());
+      }
+    });
+    return unsubscribe;
+  }, [dispatch]);
+  console.log(user);
+  return (
+    <div style={{ backgroundColor: "black" }}>
+      <BrowserRouter>
+        {!user ? (
+          <LoginScreen />
+        ) : (
+          <Routes>
+            <Route exact path="/" element={<HomeScreen />} />
+            <Route exact path="/login" element={<LoginScreen />} />
+            <Route exact path="/profile" element={<ProfileScreen />} />
+          </Routes>
+        )}
+      </BrowserRouter>
+    </div>
+  );
 }
 
 export default React.memo(App);
