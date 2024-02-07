@@ -1,10 +1,10 @@
 import React from "react";
-import "./LoadingSkeleton.css";
+import "./css_modules/LoadingSkeleton.css";
 const LoadingSkeleton = (props) => {
-	let counter = Math.floor(window.innerWidth / 100 / 2);
-	const classes = `skeleton ${props.type}`;
-	if (props.type === "thumbnail")
-		return Array(counter).fill(<div className={classes}></div>);
+  let counter = Math.floor(window.innerWidth / 100 / 2);
+  const classes = `skeleton ${props.type}`;
+  if (props.type === "thumbnail")
+    return Array(counter).fill(<div className={classes}></div>);
 };
 
 export default LoadingSkeleton;
